@@ -37,6 +37,9 @@ brew install romkatv/powerlevel10k/powerlevel10k
 # Ensure that iTerm2 is using Meslo font
 # Open iTerm2
 
+# Install zsh-syntax-highlighting plugin
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
 # Link dotfiles to home dir 
 ln -s ~/my-shell/zshrc ~/.zshrc
 ln -s ~/my-shell/p10k.zsh ~/.p10k.zsh
