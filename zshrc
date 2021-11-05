@@ -77,7 +77,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(copybuffer copydir copyfile git docker web-search)
+plugins=(copybuffer copydir copyfile fzf git docker web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,6 +107,21 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+
+alias ls="ls -AlGh"
+
+codesearch() {
+  phrase="$1"; search_path="$2"; optional_args="$3";
+  grep -R --exclude-dir node_modules --exclude-dir .git --exclude-dir coverage --exclude-dir jspm_packages --exclude-dir dist --exclude package-lock.json --exclude yarn.lock --exclude *.log --exclude junit.xml --exclude *.map --exclude-dir __snapshots__ --exclude-dir .docker $optional_args "$phrase" "$search_path"
+}
+
+perf() {
+  open http://www.brendangregg.com/linuxperf.html
+}
+
+clear_swp() {
+  find . -type f -name "*.sw[klmnop]" -delete
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

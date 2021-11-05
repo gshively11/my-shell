@@ -4,9 +4,7 @@ Installation and configuration for my shell.
 
 ## Initial Setup
 
-I'm not sure if these step are idempotent, only run this once for initial setup.
-
-Install Brew
+These steps include some manual interactions, so don't just copy and paste this whole snippet.
 
 ```sh
 # Set ZSH as default shell
@@ -43,7 +41,22 @@ brew install romkatv/powerlevel10k/powerlevel10k
 ln -s ~/my-shell/zshrc ~/.zshrc
 ln -s ~/my-shell/p10k.zsh ~/.p10k.zsh
 
-# Import my_shell.json as an iTerm2 Profile via GUI
+# Import my_shell.json as an iTerm2 Profile via GUI. Restart iTerm2
+
+# Install other utilities
+brew install fzf
+brew install hub
+brew install ipcalc
+brew install jq
+brew install ripgrep
+brew install tree
+brew install vim
+
+# Install my vim configuration
+git clone git@github.com:gshively11/vim ~/.vim
+cd ~/.vim
+git submodule update --init --recursive
+cd -
 ```
 
 ## Cheatsheet
